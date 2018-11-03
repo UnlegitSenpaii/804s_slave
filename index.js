@@ -55,7 +55,7 @@ bot.on('ready',function(){
     let status = [
         "tappin nns | selly.gg/@besteconfigs",
         "http://hvh.academy/",
-        ""
+        "advantage through technology"
     ];
     setInterval(function() {
         let status2 = status[Math.floor(Math.random() * status.length)]
