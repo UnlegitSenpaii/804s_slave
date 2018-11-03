@@ -10,6 +10,7 @@ let userData = JSON.parse(fs.readFileSync("data/userdata.json", "uft8"));
 
 
 bot.registry.registerGroup('simple', 'Simple')
+bot.registry.registerGroup('management', 'Management')
 bot.registry.registerGroup('music', 'Music')
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + "/commands")
