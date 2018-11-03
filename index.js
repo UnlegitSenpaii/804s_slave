@@ -4,12 +4,14 @@ const bot = new Commando.Client({
         commandPrefix: "$"
     });
 const TOKEN = 'UR MOM IS FUCKING GAY'// no u
+const fs = require("fs");
+const moment = require("moment");
 
-
-let userData = JSON.parse(fs.readFileSync("data/userdata.json", "uft8"));
+let userData = JSON.parse(fs.readFileSync("data/userdata.json", "utf8"));
 
 
 bot.registry.registerGroup('simple', 'Simple')
+bot.registry.registerGroup('management', 'Management')
 bot.registry.registerGroup('music', 'Music')
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + "/commands")
@@ -25,7 +27,7 @@ global.bannedwords = [      //das ist eine global variable weil ich noch später
 
 
 bot.on("message", function(message){
-    const author =  message.author();// wehe du machst meinen code kapput @804 meins kode > deins kode xoxo
+    const author =  message.author;// wehe du machst meinen code kapput @804 meins kode > deins kode xoxo
     if(bot.user == author)
     {return;}
     var foundbadword = false;
@@ -62,4 +64,4 @@ bot.on('ready',function(){
     bot.user.setActivity('tappin nns | selly.gg/@besteconfigs', 'https://www.twitch.tv/twitch')
 });
 
-bot.login(TOKEN);
+bot.login("");

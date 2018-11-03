@@ -13,7 +13,8 @@ class BallCommand extends commando.Command
         })
     }
 
-    async run(message, args)
+    async run(message, args)    //warum so kompiziert?
+    
     {
         var ball = Math.floor(Math.random() * 3);
         if(ball == 0)
