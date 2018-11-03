@@ -53,7 +53,7 @@ bot.on('ready',function(){
     console.log("######################################################################");
     bot.user.setStatus('dnd');
     let status = [
-        "tappin nns | selly.gg/@besteconfigs",
+        "tappin nns",
         "http://hvh.academy/",
         ""
     ];
@@ -61,7 +61,7 @@ bot.on('ready',function(){
         let status2 = status[Math.floor(Math.random() * status.length)]
         bot.user.setActivity(status2);
     }, 10000)
-    bot.user.setActivity('tappin nns | selly.gg/@besteconfigs', 'https://www.twitch.tv/twitch')
+    bot.user.setActivity('hvh.academy', 'https://www.twitch.tv/twitch')
 });
 
 bot.login("");
