@@ -96,4 +96,4 @@ bot.on('ready',function(){
 });
 //#endregion bot on ready
 
-bot.login("NDc0OTk0ODI2NzQ4NzU1OTY4.DsA2Ug.VYCHZtwAJlwcQjSWK9z8YRCHwrM");//
+bot.login("");//
