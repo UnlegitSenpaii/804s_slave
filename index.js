@@ -24,6 +24,7 @@ global.links = false;
 global.ads = true;
 global.randomads = [
         "```please help p. is holding his admins and mods as hostage and feeds them only with old dryed cum```",
+        "```everything<http://www.redcore.cf/```"
 
 ];
 global.bannedwords = [      //das ist eine global variable weil ich noch später darauf zugreifen werden via eines commands (addbl.js)
