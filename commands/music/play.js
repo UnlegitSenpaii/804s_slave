@@ -55,7 +55,7 @@ class JoinCommand extends cmd.Command
         }
         else
         {
-            message.channel.send("```Join a VC first qt```")
+            message.channel.send("```Join a VC first " + message.author.user + "```")
         }
     }
 

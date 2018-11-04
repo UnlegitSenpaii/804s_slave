@@ -20,7 +20,8 @@ bot.registry.registerCommandsIn(__dirname + "/commands")
 global.servers = {};//warum brauchst du das?        kannst du auch einfach auslassen im musikbot
 global.lastmessageuser = 0;
 global.lastmessagesend = 0;
-global.bannedwords = [      //das ist eine global variable weil ich noch später darauf zugreifen werden via eines commands
+global.links = false;
+global.bannedwords = [      //das ist eine global variable weil ich noch später darauf zugreifen werden via eines commands (addbl.js)
         "nigger",
 
 ];
@@ -37,7 +38,14 @@ bot.on("message", function(message){
         if(message.content.toLowerCase().includes(bannedwords[i].toLowerCase()))
             foundbadword = true;
     }
-    
+    if(!links)
+    {
+    if(message.content.toLowerCase().includes("http"))
+    {
+        message.delete();
+        author.send("`Links are currently disabled!`");
+    }
+}
     if(foundbadword)//wenn er ein blockiertes wort gefunden hatt führt er das hier aus
     {
         message.delete();
@@ -49,7 +57,7 @@ bot.on("message", function(message){
 
 bot.on('ready',function(){
     console.log("######################################################################");
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>Started Bots successfully!<<<<<<<<<<<<<<<<<<<<<");
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>Started Bot successfully!<<<<<<<<<<<<<<<<<<<<<");
     console.log("######################################################################");
     bot.user.setStatus('dnd');
     let status = [
@@ -64,4 +72,4 @@ bot.on('ready',function(){
     bot.user.setActivity('hvh.academy', 'https://www.twitch.tv/twitch')
 });
 
-bot.login("");
+bot.login("");//

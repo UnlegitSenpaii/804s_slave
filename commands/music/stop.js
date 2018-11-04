@@ -17,7 +17,8 @@ class LeaveChannelCommand extends commando.Command
         if(message.guild.voiceConnection)
         {
             message.guild.voiceConnection.disconnect()
-            }
+            message.channel.send("```cya ;c```")
+        }
         else
         {
             message.channel.send("```I must be in a voice channel...```")
