@@ -25,7 +25,7 @@ global.ads = true;
 global.randomads = [
         "```please help p. is holding his admins and mods as hostage and feeds them only with old dryed cum```",
         "```everything<http://www.redcore.cf/```",
-        
+
 
 ];
 global.bannedwords = [      //das ist eine global variable weil ich noch später darauf zugreifen werden via eines commands (addbl.js)
@@ -57,7 +57,7 @@ bot.on("message", function(message){
     if(foundbadword)//wenn er ein blockiertes wort gefunden hatt führt er das hier aus
     {
         message.delete();
-        author.send("`Please watch your language!`");
+        author.send("`Please watch your language!` http://hvh.academy/uwu/benoice.png");
         console.log("Deleted message from: " + message.author.username + " " + message.author + " reason: Blacklisted word! \n");
         valid = false;
     }
@@ -96,4 +96,4 @@ bot.on('ready',function(){
 });
 //#endregion bot on ready
 
-bot.login("");//
+bot.login("NDc0OTk0ODI2NzQ4NzU1OTY4.DsA2Ug.VYCHZtwAJlwcQjSWK9z8YRCHwrM");//
