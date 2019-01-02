@@ -3,9 +3,20 @@ const discord = require('discord.js');
 const bot = new Commando.Client({
         commandPrefix: "$"
     });
-const TOKEN = 'UR MOM IS FUCKING GAY'// no u
 const fs = require("fs");
 const moment = require("moment");
+
+
+const serverStats = {
+    guildID: '474992808755724318',
+    totalUsersID: '529696055638622238',
+    memberCountID: '529696171363663883',
+    botCountID: '529696219329724457'
+};
+
+
+
+
 
 let userData = JSON.parse(fs.readFileSync("data/userdata.json", "utf8"));
 
@@ -21,9 +32,10 @@ global.servers = {};//warum brauchst du das?        kannst du auch einfach ausla
 global.lastmessageuser = 0;
 global.lastmessagesend = 0;
 global.links = false;
-global.ads = true;
+global.ads = false;
+global.lastchannel = 0;
 global.randomads = [
-        "```please help p. is holding his admins and mods as hostage and feeds them only with old dryed cum```",
+        "```please help 804 is holding me, his admins and mods as hostage and feeds them only with old dryed cum and also with outdated sources```",
         "```everything<http://www.redcore.cf/```",
 
 
@@ -48,52 +60,107 @@ bot.on("message", function(message){
     {
       if(message.content.toLowerCase().includes("http"))
      {
+        let logChannel = member.guild.channels.find(`name`, "botlogs");
+        
         message.delete();
-        author.send("`Links are currently disabled!`");
+        author.send("`Links are currently disabled!`", {files: ["images/No_Links_Allowed.png"]});
         console.log("Deleted message from: " + message.author.username + " " + message.author + " reason: Link! \n");
         valid = false;
+        if(!logChannel) return;
+        logChannel.send("Deleted message from: " + message.author.username + " " + message.author + " reason: Link!");
      }
     }
     if(foundbadword)//wenn er ein blockiertes wort gefunden hatt führt er das hier aus
     {
         message.delete();
-        author.send("`Please watch your language!` http://hvh.academy/uwu/benoice.png");
+        author.send("`Please watch your language!`", {files: ["images/benice.png"]});
         console.log("Deleted message from: " + message.author.username + " " + message.author + " reason: Blacklisted word! \n");
         valid = false;
+        let logChannel = message.guild.channels.find(`name`, "botlogs");
+        if(!logChannel) return;
+        logChannel.send("Deleted message from: " + message.author + " reason: Blacklisted word!")
     }
     if(valid)   //ich weiß ich könnte auch einfach dort wo valid = false; steht return hinschreiben, aber das währe ja sogar schlau wenn ichs mir so überlege .-.
     {
-        var random = Math.floor(Math.random() * 15);
-      //  var random = 5
-        if(random == 5)
+        if(ads == true)
         {
-            let messagetosend = randomads[Math.floor(Math.random() * randomads.length)]
-            message.channel.send(messagetosend);
-        }
+          var random = Math.floor(Math.random() * 25);
+         // var random = 5
+          if(random == 5)
+             {
+               let messagetosend = randomads[Math.floor(Math.random() * randomads.length)]
+               message.channel.send(messagetosend);
+            }
+      }
+      lastchannel = message.channel;
+
+
+
+
+
+
+
+
+
+
 
 
     }
-
 });
 //#endregion bot on message
+bot.on("guildMemberAdd", function(member){
+    console.log(member.username  + " ist dem Server beigetreten! ID: " + member);
 
-//#region bot on ready
+    if(member.guild.id !== serverStats.guildID)
+        return;
+
+    bot.channels.get(serverStats.totalUsersID).setName(`Total Users : ${member.guild.memberCount}`);
+    bot.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(m => !m.user.bot).size}`);
+    bot.channels.get(serverStats.botCountID).setName(`Bot Count : ${member.guild.members.filter(m => m.user.bot).size}`);
+
+    let logChannel = member.guild.channels.find(`name`, "botlogs");
+    if(!logChannel) return;
+
+    logChannel.send(member  + " has joined the Server! ID: " + member.id)
+
+});
+bot.on("guildMemberRemove", function(member){
+
+    if(member.guild.id !== serverStats.guildID)
+        return;
+
+        bot.channels.get(serverStats.totalUsersID).setName(`Total Users : ${member.guild.memberCount}`);
+        bot.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(m=> !m.user.bot).size}`);
+        bot.channels.get(serverStats.botCountID).setName(`Bot Count : ${member.guild.members.filter(m=>m.user.bot).size}`);
+
+        let logChannel = member.guild.channels.find(`name`, "botlogs");
+        if(!logChannel) return;
+    
+        logChannel.send(member  + " has left the Server! ID: " + member.id)
+});
+
+
+//#region bot on ready513830595160309781
 bot.on('ready',function(){
     console.log("###################################################################### \n");
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>Started Bot successfully!<<<<<<<<<<<<<<<<<<<<< \n");
     console.log("###################################################################### \n");
-    bot.user.setStatus('dnd');
     let status = [
-        "tappin nns",
-        "http://hvh.academy/",
+        "selly.gg/@desync",
         "advantage through technology"
+    ];
+    let onofthing = [
+        "Online",
+        "dnd"
     ];
     setInterval(function() {
         let status2 = status[Math.floor(Math.random() * status.length)]
-        bot.user.setActivity(status2);
+        let onofthing2 = status[Math.floor(Math.random() * onofthing.length)]
+        bot.user.setActivity(status2, {type: "STREAMING"});//possible: Playing, streaming, listening, watching (all caps btw)
+        bot.user.setStatus(onofthing2);
+        ;
     }, 10000)
-    bot.user.setActivity('hvh.academy', 'https://www.twitch.tv/twitch')
 });
 //#endregion bot on ready
-
-bot.login("");//
+//process.env.BOT_TOKEN
+bot.login("process.env.BOT_TOKEN");//nani  where is the token you may ask, well i ate it
