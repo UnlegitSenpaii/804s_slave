@@ -60,7 +60,7 @@ bot.on("message", function(message){
     {
       if(message.content.toLowerCase().includes("http"))
      {
-        let logChannel = member.guild.channels.find(`name`, "╒-ʟᴏɢs");
+        let logChannel = message.guild.channels.find(`name`, "╒-ʟᴏɢs");
         
         message.delete();
         author.send("`Links are currently disabled!`", {files: ["images/No_Links_Allowed.png"]});
