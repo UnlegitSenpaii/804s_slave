@@ -10,7 +10,7 @@ const moment = require("moment");
 const serverStats = {
     guildID: '529681261913178133',
     totalUsersID: '529693828798611460',
-    memberCountID: '529693829712969728',
+    memberCountID: '529693830312624148',
     botCountID: '529693829712969728'
 };
 
