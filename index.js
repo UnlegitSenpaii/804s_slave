@@ -163,4 +163,4 @@ bot.on('ready',function(){
 });
 //#endregion bot on ready
 //process.env.BOT_TOKEN
-bot.login("process.env.BOT_TOKEN");//nani  where is the token you may ask, well i ate it
+bot.login(process.env.BOT_TOKEN);//nani  where is the token you may ask, well i ate it
