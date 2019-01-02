@@ -61,7 +61,7 @@ class muteCommand extends cmd.Command
         .addField("Muted for", ms(ms(mutetime)))
         .addField("Time", message.createdAt);
 
-        let logChannel = message.guild.channels.find(`name`, "botlogs");
+        let logChannel = message.guild.channels.find(`name`, "╒-ʟᴏɢs");
 
          console.log("sending message");
          logChannel.send(muteEmbed)

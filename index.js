@@ -8,10 +8,10 @@ const moment = require("moment");
 
 
 const serverStats = {
-    guildID: '474992808755724318',
-    totalUsersID: '529696055638622238',
-    memberCountID: '529696171363663883',
-    botCountID: '529696219329724457'
+    guildID: '529681261913178133',
+    totalUsersID: '529693828798611460',
+    memberCountID: '529693829712969728',
+    botCountID: '529693829712969728'
 };
 
 
@@ -36,7 +36,7 @@ global.ads = false;
 global.lastchannel = 0;
 global.randomads = [
         "```please help 804 is holding me, his admins and mods as hostage and feeds them only with old dryed cum and also with outdated sources```",
-        "```everything<http://www.redcore.cf/```",
+        "```selly.gg/@desync```",
 
 
 ];
@@ -60,7 +60,7 @@ bot.on("message", function(message){
     {
       if(message.content.toLowerCase().includes("http"))
      {
-        let logChannel = member.guild.channels.find(`name`, "botlogs");
+        let logChannel = member.guild.channels.find(`name`, "╒-ʟᴏɢs");
         
         message.delete();
         author.send("`Links are currently disabled!`", {files: ["images/No_Links_Allowed.png"]});
@@ -76,7 +76,7 @@ bot.on("message", function(message){
         author.send("`Please watch your language!`", {files: ["images/benice.png"]});
         console.log("Deleted message from: " + message.author.username + " " + message.author + " reason: Blacklisted word! \n");
         valid = false;
-        let logChannel = message.guild.channels.find(`name`, "botlogs");
+        let logChannel = message.guild.channels.find(`name`, "╒-ʟᴏɢs");
         if(!logChannel) return;
         logChannel.send("Deleted message from: " + message.author + " reason: Blacklisted word!")
     }
@@ -118,7 +118,7 @@ bot.on("guildMemberAdd", function(member){
     bot.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(m => !m.user.bot).size}`);
     bot.channels.get(serverStats.botCountID).setName(`Bot Count : ${member.guild.members.filter(m => m.user.bot).size}`);
 
-    let logChannel = member.guild.channels.find(`name`, "botlogs");
+    let logChannel = member.guild.channels.find(`name`, "╒-ʟᴏɢs");
     if(!logChannel) return;
 
     logChannel.send(member  + " has joined the Server! ID: " + member.id)
@@ -133,7 +133,7 @@ bot.on("guildMemberRemove", function(member){
         bot.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(m=> !m.user.bot).size}`);
         bot.channels.get(serverStats.botCountID).setName(`Bot Count : ${member.guild.members.filter(m=>m.user.bot).size}`);
 
-        let logChannel = member.guild.channels.find(`name`, "botlogs");
+        let logChannel = member.guild.channels.find(`name`, "╒-ʟᴏɢs");
         if(!logChannel) return;
     
         logChannel.send(member  + " has left the Server! ID: " + member.id)

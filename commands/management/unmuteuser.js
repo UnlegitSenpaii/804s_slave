@@ -14,7 +14,7 @@ class importCommand extends cmd.Command
     }
     async run(message, args)
     {
-        let logChannel = message.guild.channels.find(`name`, "botlogs");
+        let logChannel = message.guild.channels.find(`name`, "╒-ʟᴏɢs");
         if(!logChannel)return  message.channel.send("Coudn't find logchannel.");
         let tounmute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!tounmute)return logChannel.send("Coudn't find user.")
