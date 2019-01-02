@@ -1,5 +1,5 @@
 const cmd = require("discord.js-commando");
-
+const discord = require('discord.js');
 class BanCommand extends cmd.Command
 {
     constructor(client)
