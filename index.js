@@ -31,7 +31,7 @@ bot.registry.registerCommandsIn(__dirname + "/commands")
 global.servers = {};//warum brauchst du das?        kannst du auch einfach auslassen im musikbot
 global.lastmessageuser = 0;
 global.lastmessagesend = 0;
-global.links = false;
+global.links = true;
 global.ads = false;
 global.lastchannel = 0;
 global.randomads = [

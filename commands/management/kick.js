@@ -45,7 +45,7 @@ class KickCommand extends cmd.Command
 
         console.log("Kicked " + target + " with reason: " + kickreason);
 
-        let kickChannel = message.guild.channels.find(`name`, "botlogs");
+        let kickChannel = message.guild.channels.find(`name`, "╒-ʟᴏɢs");
         if(!kickChannel) return message.channel.send("Cant find log channel!")
 
         kickChannel.send(kickEmbed);
