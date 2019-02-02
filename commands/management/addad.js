@@ -18,6 +18,10 @@ class importCommand extends cmd.Command
         {
             randomads.push(args)
             message.channel.send("`Successfully added " + args + " !`")
+            let logChannel = message.guild.channels.find(`name`, "╒-ʟᴏɢs");
+            if(!logChannel) return;
+        
+            logChannel.send(message.author + " has added a new ad: " + args + " !")
         }
         else{
             message.channel.send("`You have to have the ADMINISTRATOR rights to execute this command!`")

@@ -47,10 +47,9 @@ class BanCommand extends cmd.Command
 
         console.log("Banned " + target + " with reason: " + banreason);
 
-        let banChannel = message.guild.channels.find(`name`, "botlogs");
-        if(!banChannel) return message.channel.send("Cant find log channel!")
-
-        banChannel.send(banEmbed);
+        let logChannel = message.guild.channels.find(`name`, "╒-ʟᴏɢs");
+        if(!logChannel) return;
+        logChannel.send(banEmbed);
     }
 
 }

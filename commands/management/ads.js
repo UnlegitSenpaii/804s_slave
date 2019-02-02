@@ -20,11 +20,17 @@ class importCommand extends cmd.Command
             {
                 ads = false;
                 message.channel.send("`You enabled the adblocker!`");
+                let logChannel = message.guild.channels.find(`name`, "╒-ʟᴏɢs");
+                if(!logChannel) return;
+                logChannel.send(message.author + " has enabled the adblocker!");
             }
             else if(!ads)   
             {
                 ads = true;
                 message.channel.send("`You disabled the adblocker!`");
+                let logChannel = message.guild.channels.find(`name`, "╒-ʟᴏɢs");
+                if(!logChannel) return;
+                logChannel.send(message.author + " has disabled the adblocker!");
             }
         }
         else{

@@ -41,7 +41,7 @@ global.randomads = [
 
 ];
 global.bannedwords = [      //das ist eine global variable weil ich noch später darauf zugreifen werden via eines commands (addbl.js)
-        "nigger",
+
 ];
 
 //#region bot on message
@@ -94,17 +94,6 @@ bot.on("message", function(message){
       }
       lastchannel = message.channel;
 
-
-
-
-
-
-
-
-
-
-
-
     }
 });
 //#endregion bot on message
@@ -156,11 +145,10 @@ bot.on('ready',function(){
     setInterval(function() {
         let status2 = status[Math.floor(Math.random() * status.length)]
         let onofthing2 = status[Math.floor(Math.random() * onofthing.length)]
-        bot.user.setActivity(status2, {type: "STREAMING"});//possible: Playing, streaming, listening, watching (all caps btw)
+        bot.user.setActivity(status2, {type: "WATCHING"});//possible: Playing, streaming, listening, watching (all caps btw)
         bot.user.setStatus(onofthing2);
         ;
     }, 10000)
 });
 //#endregion bot on ready
-//process.env.BOT_TOKEN
 bot.login(process.env.BOT_TOKEN);//nani  where is the token you may ask, well i ate it
