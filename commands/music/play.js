@@ -1,4 +1,3 @@
-
 const cmd = require("discord.js-commando");
 const YTDL = require("ytdl-core");
 
@@ -17,7 +16,6 @@ function Play(connection, message)
             }
             else{
                 connection.disconnect();
-                message.channel.send("```cya :D```")
             }
         })
 }
@@ -47,7 +45,7 @@ class JoinCommand extends cmd.Command
                 message.member.voiceChannel.join()
                 .then(connection =>{
                     var server = servers[message.guild.id]
-                    message.channel.send("```Joined ;D```");
+                    message.channel.send("`Successfully Joined!`");
                     server.queue.push(args);
                     Play(connection, message);
                 })
@@ -55,7 +53,7 @@ class JoinCommand extends cmd.Command
         }
         else
         {
-            message.channel.send("```Join a VC first " + message.author.user + "```")
+            message.channel.send("`You have to be in a Voice Channel!`")
         }
     }
 
