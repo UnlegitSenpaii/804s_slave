@@ -46,8 +46,13 @@ class JoinCommand extends cmd.Command
                 .then(connection =>{
                     var server = servers[message.guild.id]
                     message.channel.send("`Successfully Joined!`");
-                    server.queue.push(args);
-                    Play(connection, message);
+                    try {
+                        server.queue.push(args);
+                        Play(connection, message);
+                    } catch (error) {
+                        message.channel.send("Ouh no! An Error accoured! " + error);
+                    }
+
                 })
             }
         }
