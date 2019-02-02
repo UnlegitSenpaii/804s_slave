@@ -1,6 +1,6 @@
 const cmd = require("discord.js-commando");
-const YTDL = require("ytdl-core");
-
+const fs = require('fs');
+const YTDL = require('ytdl-core');
 function Play(connection, message)
 {
     var server = servers[message.guild.id]
